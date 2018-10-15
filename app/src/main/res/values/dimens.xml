@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="textSizeMinValue">10sp</dimen>
+    <dimen name="textSizeDefValue">18sp</dimen>
+    <dimen name="textSizeMaxValue">25sp</dimen>
+    <dimen name="ingredientsSizeMinValue">10sp</dimen>
+    <dimen name="ingredientsSizeDefValue">18sp</dimen>
+    <dimen name="ingredientsSizeMaxValue">25sp</dimen>
+    <dimen name="photoSize700">700px</dimen>
+    <dimen name="photoSize350">350px</dimen>
+    <dimen name="photoSize100">100px</dimen>
+</resources>

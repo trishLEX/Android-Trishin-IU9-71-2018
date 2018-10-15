@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <SwitchPreference
+        android:defaultValue="@bool/showAlco"
+        android:key="@string/showAlcoKey"
+        android:title="@string/showAlcoTitle" />
+
+    <SwitchPreference
+        android:defaultValue="@bool/showPhoto"
+        android:key="@string/showPhotoKey"
+        android:title="@string/showPhotoTitle" />
+
+    <ListPreference
+        android:key="@string/listKey"
+        android:title="@string/listTitle"
+        android:entries="@array/photoSizesEntries"
+        android:entryValues="@array/photoSizesValues"
+        android:defaultValue="@string/photoSize700"
+        />
+
+    <SeekBarPreference
+        android:key="@string/textSizeSimpleKey"
+        android:title="@string/textSizeSimpleTitle"
+        android:min="@integer/textSizeMinValue"
+        android:max="@integer/textSizeMaxValue"
+        android:defaultValue="@integer/textSizeDefValue"
+        android:summary="so so"
+        />
+
+    <SeekBarPreference
+        android:key="@string/textSizeIngredientsKey"
+        android:title="@string/textSizeIngredientsTitle"
+        android:min="@integer/ingredientsSizeMinValue"
+        android:max="@integer/ingredientsSizeMaxValue"
+        android:defaultValue="@integer/ingredientsSizeDefValue"
+        />
+</PreferenceScreen>

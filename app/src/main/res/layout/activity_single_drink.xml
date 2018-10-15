@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".SingleDrink.SingleDrinkActivity">
+
+    <LinearLayout
+        android:id="@+id/singleLayout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/photoSize700"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/imageSingleDrink"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
+
+        <TextView
+            android:id="@+id/ingredientsSingleDrink"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/yandex_sans_text_regular"
+            android:scrollbars="vertical"
+            android:textSize="@dimen/ingredientsSizeDefValue"
+            android:paddingLeft="3dp" />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/shareWithFriend"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/textSizeDefValue"
+        android:fontFamily="@font/yandex_sans_text_regular"
+        android:text="@string/shareButton"/>
+
+    <TextView
+        android:id="@+id/textSingleDrink"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/yandex_sans_text_regular"
+        android:textSize="@dimen/textSizeDefValue"
+        android:padding="5dp"
+        android:scrollbars="vertical"/>
+
+</LinearLayout>

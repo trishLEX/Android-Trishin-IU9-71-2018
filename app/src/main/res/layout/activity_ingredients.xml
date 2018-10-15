@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white"
+    tools:context=".Ingredients.IngredientActivity">
+
+
+    <EditText
+        android:id="@+id/editIngredient"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:fontFamily="@font/yandex_sans_text_regular"
+        android:inputType="text" />
+
+    <Button
+        android:id="@+id/buttonDrinksByIngredients"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/yandex_sans_text_regular"
+        android:text="@string/search_by_ingredients"/>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/drinksByIngredientsRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+</LinearLayout>

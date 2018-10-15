@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">CocktailApp</string>
+    <string name="search_by_ingredients">Search By Ingredient</string>
+    <string name="search_by_name">Search By Name</string>
+    <string name="random_cocktail">Random Cocktail</string>
+    <string name="enter_ingredient">Enter ingredient</string>
+    <string name="photoSize100">100</string>
+    <string name="photoSize350">350</string>
+    <string name="photoSize700">700</string>
+    <string name="showAlcoKey">showAlcoKey</string>
+    <string name="showAlcoTitle">Show Alcohol Drinks</string>
+    <string name="showPhotoKey">showPhotoKey</string>
+    <string name="showPhotoTitle">Show Photos</string>
+    <string name="listKey">listKey</string>
+    <string name="listTitle">Size of photos</string>
+    <string name="textSizeIngredientsKey">textSizeIngredientsKey</string>
+    <string name="textSizeIngredientsTitle">Text size of ingredients in sp</string>
+    <string name="textSizeSimpleKey">textSizeSimpleKey</string>
+    <string name="textSizeSimpleTitle">Text size of plain text in sp</string>
+    <string name="menuTitle">Settings</string>
+    <string name="showAlcohol">showAlcohol</string>
+    <string name="showPhoto">showPhoto</string>
+    <string name="shareButton">Share Cocktail</string>
+</resources>
