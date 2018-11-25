@@ -2,6 +2,7 @@ package ru.bmstu.trishlex.cocktailapp.SingleDrink;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
@@ -31,6 +32,7 @@ import ru.bmstu.trishlex.cocktailapp.DrinkLoader;
 import ru.bmstu.trishlex.cocktailapp.Ingredients.Drink;
 import ru.bmstu.trishlex.cocktailapp.MainActivity;
 import ru.bmstu.trishlex.cocktailapp.R;
+import ru.bmstu.trishlex.cocktailapp.Service.DrinkModeReceiver;
 
 import static android.util.TypedValue.COMPLEX_UNIT_SP;
 import static ru.bmstu.trishlex.cocktailapp.DrinkLoader.DRINK_LOADER_ID;
@@ -46,6 +48,7 @@ public class SingleDrinkActivity extends AppCompatActivity implements LoaderMana
     public static final String DRINK = "drink";
     private static DrinkReceipt drinkReceipt;
     private ProgressDialog dialog;
+    private DrinkModeReceiver receiver;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -137,9 +140,22 @@ public class SingleDrinkActivity extends AppCompatActivity implements LoaderMana
                 }
             }
         }
+
+
+        IntentFilter filter = new IntentFilter("android.bluetooth.device.action.ACL_CONNECTED");
+        filter.addAction("android.bluetooth.adapter.action.STATE_CHANGED");
+
+        receiver = new DrinkModeReceiver();
+        registerReceiver(receiver, filter);
     }
 
-    private Uri getLocalBitmapUri(Bitmap bmp) {
+    @Override
+    protected void onPause() {
+        unregisterReceiver(receiver);
+        super.onPause();
+    }
+
+    public Uri getLocalBitmapUri(Bitmap bmp) {
         Uri bmpUri = null;
         File file = new File(
                 getExternalFilesDir(Environment.DIRECTORY_PICTURES),
@@ -242,5 +258,9 @@ public class SingleDrinkActivity extends AppCompatActivity implements LoaderMana
         ingredients.setText(builder.toString());
 
         SingleDrinkActivity.drinkReceipt = drinkReceipt;
+    }
+
+    public static DrinkReceipt getDrinkReceipt() {
+        return drinkReceipt;
     }
 }

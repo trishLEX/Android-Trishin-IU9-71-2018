@@ -1,6 +1,7 @@
 package ru.bmstu.trishlex.cocktailapp;
 
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -10,6 +11,7 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import ru.bmstu.trishlex.cocktailapp.Ingredients.IngredientActivity;
+import ru.bmstu.trishlex.cocktailapp.Service.DrinkModeReceiver;
 import ru.bmstu.trishlex.cocktailapp.Settings.PreferencesActivity;
 import ru.bmstu.trishlex.cocktailapp.SingleDrink.SingleDrinkActivity;
 

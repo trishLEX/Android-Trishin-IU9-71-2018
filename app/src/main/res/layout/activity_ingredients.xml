@@ -17,12 +17,26 @@
         android:fontFamily="@font/yandex_sans_text_regular"
         android:inputType="text" />
 
-    <Button
-        android:id="@+id/buttonDrinksByIngredients"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/yandex_sans_text_regular"
-        android:text="@string/search_by_ingredients"/>
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/buttonDrinksByIngredients"
+            android:layout_width="240dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/yandex_sans_text_regular"
+            android:text="@string/search_by_ingredients" />
+
+        <Button
+            android:id="@+id/savePhotosButton"
+            android:layout_width="120dp"
+            android:layout_height="48dp"
+            android:text="@string/savePhotos"
+            android:fontFamily="@font/yandex_sans_text_regular"/>
+
+    </LinearLayout>
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/drinksByIngredientsRecyclerView"

@@ -64,4 +64,8 @@ public class IngredientsListAdapter extends RecyclerView.Adapter<DrinksByIngredi
         Log.d("debugLog", "setting drinks " + drinks);
         this.drinks = drinks;
     }
+
+    public List<Drink> getDrinks() {
+        return drinks;
+    }
 }

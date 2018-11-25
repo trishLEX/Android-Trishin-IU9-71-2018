@@ -1,10 +1,16 @@
 package ru.bmstu.trishlex.cocktailapp.Ingredients;
 
+import android.Manifest;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
 import android.app.ProgressDialog;
+import android.content.Intent;
+import android.graphics.Bitmap;
 import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.LoaderManager;
+import android.support.v4.app.NotificationCompat;
 import android.support.v4.content.Loader;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -13,11 +19,15 @@ import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import ru.bmstu.trishlex.cocktailapp.R;
+import ru.bmstu.trishlex.cocktailapp.Service.DownloadService;
 
 import static ru.bmstu.trishlex.cocktailapp.Ingredients.DrinksByIngredientLoader.DRINKS_BY_INGREDIENTS_LOADER_ID;
 import static ru.bmstu.trishlex.cocktailapp.MainActivity.SHOW_ALCOHOL;
@@ -33,10 +43,13 @@ public class IngredientActivity extends AppCompatActivity implements LoaderManag
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ingredients);
 
+        Button saveButton = findViewById(R.id.savePhotosButton);
+        saveButton.setEnabled(false);
         Button button = findViewById(R.id.buttonDrinksByIngredients);
         button.setOnClickListener(v -> {
             Bundle params = new Bundle();
 
+            saveButton.setEnabled(true);
             LoaderManager loaderManager = LoaderManager.getInstance(this);
             Loader<List<Drink>> loader = loaderManager.getLoader(DRINKS_BY_INGREDIENTS_LOADER_ID);
             dialog = new ProgressDialog(this);
@@ -51,6 +64,19 @@ public class IngredientActivity extends AppCompatActivity implements LoaderManag
             } else {
                 loaderManager.restartLoader(DRINKS_BY_INGREDIENTS_LOADER_ID, params, this);
             }
+        });
+
+        saveButton.setOnClickListener(v -> {
+            requestPermissions(new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 1);
+
+            ArrayList<String> urls = adapter.getDrinks().stream().map(Drink::getStrUrl).collect(Collectors.toCollection(ArrayList::new));
+            ArrayList<String> names = adapter.getDrinks().stream().map(Drink::getName).collect(Collectors.toCollection(ArrayList::new));
+
+            Intent intent = new Intent(this, DownloadService.class);
+            intent.putExtra("images", urls);
+            intent.putExtra("names", names);
+
+            startService(intent);
         });
 
         Log.d("debugLog", "Ingredients create start");
